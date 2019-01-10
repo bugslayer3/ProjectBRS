@@ -22,6 +22,7 @@ First of all, when the function of this feature is executed, it shows all the re
 
 int main()
 {
+	// Notes
 	// Define records
 	std::ofstream records;
 
