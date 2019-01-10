@@ -18,9 +18,36 @@ This works in similar manner to the Search feature.When the function for Edit Re
 Delete Record :
 First of all, when the function of this feature is executed, it shows all the records in the file, and the user can enter the record number to delete.If the record was not found, this banking record system project in C++ displays the message – “Error in opening!File Not Found!!”
 */
+#include "Main.h"
 
 int main()
 {
-	//Start of code
+	// Define records
+	std::ofstream records;
+
+	// Check to see if Records file exists
+	if (fileExists("records.txt") == true) {}
+	// Else Create file Records
+	else 
+	{
+		records.open("records.txt");
+		records << "[Records]";
+		records.close();
+	}
+
+	records.open("records.txt");
+	records << "[Hi]";
+	records.close();
+
 	return 0;
+}
+
+bool fileExists(const std::string& filename)
+{
+	struct stat buf;
+	if (stat(filename.c_str(), &buf) != -1)
+	{
+		return true;
+	}
+	return false;
 }
