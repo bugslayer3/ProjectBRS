@@ -22,6 +22,45 @@ First of all, when the function of this feature is executed, it shows all the re
 
 int main()
 {
+	std::cout << "BANKING RECORD SYSTEM\n\n"
+		<< "1 - add record\n"
+		<< "2 - show / list data\n"
+		<< "3 - search record\n"
+		<< "4 - edit record\n"
+		<< "5 - delete record\n";
+
+	//input checking
+	int option;
+	do
+	{
+		std::cin >> option;
+		if (option > 5 || option < 1) {
+			//invalid_input();
+		}
+	} while (option > 5 || option < 1);
+
+
+	switch (option) {
+	case 1:
+		//read_data();
+		break;
+
+	case 2:
+		//show_data();
+		break;
+
+	case 3:
+		//search_record();
+		break;
+	case 4:
+		//edit_record();
+		break;
+	case 5:
+		//delete_record();
+		break;
+	}
+	//read_data();
+
 	// Notes
 	// Define records
 	std::ofstream records;
