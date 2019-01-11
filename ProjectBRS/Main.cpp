@@ -22,62 +22,61 @@ First of all, when the function of this feature is executed, it shows all the re
 
 int main()
 {
-	std::cout << "BANKING RECORD SYSTEM\n\n"
-		<< "1 - add record\n"
-		<< "2 - show / list data\n"
-		<< "3 - search record\n"
-		<< "4 - edit record\n"
-		<< "5 - delete record\n";
-
-	//input checking
-	int option;
-	do
-	{
-		std::cin >> option;
-		if (option > 5 || option < 1) {
-			//invalid_input();
-		}
-	} while (option > 5 || option < 1);
-
-
-	switch (option) {
-	case 1:
-		//read_data();
-		break;
-
-	case 2:
-		//show_data();
-		break;
-
-	case 3:
-		//search_record();
-		break;
-	case 4:
-		//edit_record();
-		break;
-	case 5:
-		//delete_record();
-		break;
-	}
-	//read_data();
-
-	// Notes
 	// Define records
 	std::ofstream records;
 
 	// Check to see if Records file exists
 	if (fileExists("records.txt") == true) {}
 	// Else Create file Records
-	else 
+	else
 	{
 		records.open("records.txt");
 		records << "[Records]";
 		records.close();
 	}
 
-	records.open("records.txt");
-	records << "[Hi]";
-	records.close();
+	std::cout << "BANKING RECORD SYSTEM\n"
+		<< "--------------------\n\n"
+		<< "Select one option from below\n"
+		<< "1 - add record\n"
+		<< "2 - show / list record\n"
+		<< "3 - search record\n"
+		<< "4 - edit record\n"
+		<< "5 - update record\n"
+		<< "6 - delete record\n" 
+		<< std::endl;
+
+	//input checking
+	int option;
+
+	std::cin >> option;
+
+	switch (option) 
+	{
+	case 1:
+		write_record();
+		break;
+
+	case 2:
+		read_record();
+		break;
+
+	case 3:
+		search_record();
+		break;
+	case 4:
+		edit_record();
+		break;
+	case 5:
+		update_record();
+		break;
+	case 6:
+		delete_record();
+		break;
+	default:
+		std::cout << "Please enter a correct number: ";
+	}
+	//read_data();
 
 	return 0;
 }
@@ -91,3 +90,24 @@ bool fileExists(const std::string& filename)
 	}
 	return false;
 }
+
+void invalid_input()
+{}
+
+void write_record()
+{}
+
+void read_record()
+{}
+
+void search_record()
+{}
+
+void edit_record()
+{}
+
+void update_record()
+{}
+
+void delete_record()
+{}
