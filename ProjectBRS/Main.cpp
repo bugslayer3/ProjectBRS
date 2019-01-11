@@ -3,9 +3,6 @@ Project: BRS (Banking Record System):
 
 File handling has been effectively used for each feature of this project.Here, I am going to describe these features in brief.
 
-Add Record :
-For this feature void read_data() function has been used to add banking record into the file.It asks for information such as account number, first name, last name and balance to be entered.
-
 Show / List Data :
 With the information provided in add record, the void show_data() function in this banking record system project in C++ show the record corresponding to a particular account number, first name and last name.Current balance of the account holder is displayed.
 
@@ -54,24 +51,24 @@ int main()
 	switch (option) 
 	{
 	case 1:
-		write_record();
+		read_data(records);
 		break;
 
 	case 2:
-		read_record();
+		//read_record();
 		break;
 
 	case 3:
-		search_record();
+		//search_record();
 		break;
 	case 4:
-		edit_record();
+		//edit_record();
 		break;
 	case 5:
-		update_record();
+		//update_record();
 		break;
 	case 6:
-		delete_record();
+		//delete_record();
 		break;
 	default:
 		std::cout << "Please enter a correct number: ";
@@ -91,23 +88,40 @@ bool fileExists(const std::string& filename)
 	return false;
 }
 
-void invalid_input()
-{}
+// Add Record :
+// For this feature void read_data() function has been used to add banking record into the file. It asks for information such as account number, first name, last name and balance to be entered.
+void read_data(std::ofstream record)
+{
+	// Account Number, First Name, Last Name and Balance to be entered
+	double accountNumber, accountBalance;
+	std::string firstName, lastName;
 
-void write_record()
-{}
+	std::cout << "You have selected Option 1. - Add Record\n"
+		<< "Please enter the account number: ";
+	std::cin >> accountNumber;
 
-void read_record()
-{}
+	std::cout << "Please enter the first name of the Client: ";
+	std::cin >> firstName;
 
-void search_record()
-{}
+	std::cout << "Please enter the last name of the Client: ";
+	std::cin >> lastName;
 
-void edit_record()
-{}
+	std::cout << "Please enter the Clients new bank balance: ";
+	std::cin >> accountBalance;
+	std::cout << std::endl;
 
-void update_record()
-{}
+	std::cout << "Account number: " << accountNumber << "\nClient: " << firstName << " " << lastName << "\n" 
+		<< "Bank Balance: " << accountBalance << std::endl
+		<< "Please confirm this information by pressing 1: ";
 
-void delete_record()
-{}
+	int input;
+	std::cin >> input;
+
+	if (input == 1)
+	{
+		// Process Record
+		record.open("records.txt");
+		record << "[Records]";
+		record.close();
+	}
+}
